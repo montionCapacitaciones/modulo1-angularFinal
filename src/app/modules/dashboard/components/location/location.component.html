@@ -1,0 +1,13 @@
+<div>
+  {{ weathers$ | async | json }}
+</div>
+
+<div>
+  <span>
+    Ciudad: {{(weathers$ | async)?.name}}
+  </span>
+  <span>
+    Current Time: {{(weathers$ | async)?.weather[0].main}}
+  </span>
+  <span></span>
+</div>
