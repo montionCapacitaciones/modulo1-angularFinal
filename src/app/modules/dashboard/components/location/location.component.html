@@ -1,13 +1,32 @@
-<div>
-  {{ weathers$ | async | json }}
-</div>
 
-<div>
-  <span>
-    Ciudad: {{(weathers$ | async)?.name}}
-  </span>
-  <span>
-    Current Time: {{(weathers$ | async)?.weather[0].main}}
-  </span>
-  <span></span>
+
+<div class="container location-wrapper">
+  <!-- This section should be hidden by default and shown when there are locations -->
+  <section class="main">
+    <pre><code>  {{ weathers$ | async | json }}
+    </code></pre>
+    <ul class="location-list">
+      <li >
+        <div class="view">
+
+          <span>
+            <label> {{(weathers$ | async)?.name}}</label>
+            <ul >
+              <li>Current Time: {{(weathers$ | async)?.weather[0].main}}</li>
+              <li>Description: {{(weathers$ | async)?.weather[0].description}}</li>
+            </ul>
+
+
+
+          </span>
+        </div>
+        <input class="edit" value="Learn JavaScript" />
+      </li>
+
+    </ul>
+  </section>
+  <footer class="footer">
+
+    <button class="clear-completed">Clear completed</button>
+  </footer>
 </div>
