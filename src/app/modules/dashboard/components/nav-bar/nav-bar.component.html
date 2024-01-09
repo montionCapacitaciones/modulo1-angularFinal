@@ -7,7 +7,9 @@
     autofocus
     type="text"
     [formControl]="newLocationControl"
-    (keydown.enter)="changeHandler()"
+    [(ngModel)]="busqueda"
+    (keydown.enter)="loadLocation()"
      />
+     <button (click)="loadLocation()" style="background-color: rgb(58, 72, 36); color: aliceblue;">Buscar</button>
   </div>
 </header>

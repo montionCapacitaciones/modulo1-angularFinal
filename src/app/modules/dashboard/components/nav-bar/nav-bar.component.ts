@@ -11,12 +11,13 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class NavBarComponent {
   locations = signal<Location[]>([]);
+  public busqueda: string = '';
   newLocationControl= new FormControl('',{
     nonNullable: true,
     validators: [
       Validators.required    ]
   });
-  changeHandler() {
+  loadLocation(): void {
     console.log('esta es un prueba')
   }
 

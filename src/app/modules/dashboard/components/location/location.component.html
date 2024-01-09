@@ -4,21 +4,6 @@
     <pre><code>  {{ weathers$ | async | json }}
     </code></pre>
     <ul class="location-list">
-      <li>
-        <div class="view">
-
-          <span>
-            <label> {{(weathers$ | async)?.name}}</label>
-            <ul>
-              <li>Current Time: {{(weathers$ | async)?.weather[0].main}}</li>
-              <li>Description: {{(weathers$ | async)?.weather[0].description}}</li>
-            </ul>
-
-
-
-          </span>
-        </div>
-      </li>
 
       <li>
         <div class="courses-container">
