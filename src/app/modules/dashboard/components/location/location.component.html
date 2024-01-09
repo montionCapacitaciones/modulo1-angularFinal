@@ -1,17 +1,15 @@
-
-
 <div class="container location-wrapper">
   <!-- This section should be hidden by default and shown when there are locations -->
   <section class="main">
     <pre><code>  {{ weathers$ | async | json }}
     </code></pre>
     <ul class="location-list">
-      <li >
+      <li>
         <div class="view">
 
           <span>
             <label> {{(weathers$ | async)?.name}}</label>
-            <ul >
+            <ul>
               <li>Current Time: {{(weathers$ | async)?.weather[0].main}}</li>
               <li>Description: {{(weathers$ | async)?.weather[0].description}}</li>
             </ul>
@@ -20,7 +18,22 @@
 
           </span>
         </div>
-        <input class="edit" value="Learn JavaScript" />
+      </li>
+
+      <li>
+        <div class="courses-container">
+          <div class="course">
+
+            <div class="course-info">
+
+              <h5><b>City:</b> {{(weathers$ | async)?.name}}</h5>
+              <h6><b>Current Time: </b> {{(weathers$ | async)?.weather[0].main}}</h6>
+              <h6><b>Description: </b> {{(weathers$ | async)?.weather[0].description}}</h6>
+              <button class="btn">Delete</button>
+            </div>
+          </div>
+        </div>
+
       </li>
 
     </ul>
