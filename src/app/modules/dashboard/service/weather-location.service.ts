@@ -8,8 +8,11 @@ import { GetSearchWeather } from '../models/get-search-weather';
 })
 export class WeatherLocationService {
 
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
   public searchFromPostalCode(postalcode: string): Observable<GetSearchWeather> {
+    if (postalcode === '') {
+      return null;
+    }
     const url = `https://api.openweathermap.org/data/2.5/weather?zip=${postalcode},us&appid=5a4b2d457ecbef9eb2a71e480b947604`;
     return this.http.get<GetSearchWeather>(url);
 

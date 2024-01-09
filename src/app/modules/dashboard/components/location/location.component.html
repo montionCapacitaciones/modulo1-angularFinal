@@ -1,19 +1,23 @@
 <div class="container location-wrapper">
   <!-- This section should be hidden by default and shown when there are locations -->
   <section class="main">
-    <pre><code>  {{ weathers$ | async | json }}
+    <pre><code> {{locations()  | json}}
     </code></pre>
+
     <ul class="location-list">
 
-      <li>
+      <li *ngFor="let location of locations()">
         <div class="courses-container">
           <div class="course">
 
             <div class="course-info">
 
-              <h5><b>City:</b> {{(weathers$ | async)?.name}}</h5>
-              <h6><b>Current Time: </b> {{(weathers$ | async)?.weather[0].main}}</h6>
-              <h6><b>Description: </b> {{(weathers$ | async)?.weather[0].description}}</h6>
+              <h5><b>City:</b> {{location.ciudad}}</h5>
+              <h6><b>Temperature: </b> {{location.temp}}</h6>
+              <h6><b>Current Time: </b> {{location.current_weather}}</h6>
+              <h6><b>Description: </b> {{location.description}}</h6>
+
+
               <button class="btn">Delete</button>
             </div>
           </div>

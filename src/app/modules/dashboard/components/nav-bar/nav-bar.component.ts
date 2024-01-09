@@ -1,24 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule, Validators, FormsModule, NgModel } from '@angular/forms';
+import { WeatherLocationService } from '../../service/weather-location.service';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-  locations = signal<Location[]>([]);
+  @Output() public newPostalcode: EventEmitter<string> = new EventEmitter<string>();
+
   public busqueda: string = '';
-  newLocationControl= new FormControl('',{
+  newLocationControl = new FormControl('', {
     nonNullable: true,
     validators: [
-      Validators.required    ]
+      Validators.required]
   });
-  loadLocation(): void {
-    console.log('esta es un prueba')
+
+  public searchLocation(): void {
+    this.newPostalcode.emit(this.busqueda)
+
   }
 
 }

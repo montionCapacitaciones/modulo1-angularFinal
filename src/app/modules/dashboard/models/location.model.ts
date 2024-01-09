@@ -1,5 +1,7 @@
 export interface Location {
-  id: number,
+  postalcode: string,
   ciudad: string,
-  current_weather: string
+  current_weather: string,
+  description: string,
+  temp: number
 }
