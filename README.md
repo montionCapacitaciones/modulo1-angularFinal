@@ -6,3 +6,6 @@
 
 ### instalando material desing 
 ng add @angular/material
+
+### instalando bootstrap con npm
+npm install bootstrap@v5.3.2
