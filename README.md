@@ -3,3 +3,6 @@
 ### Comandos para crear componentes con angular
 - ng g c modules/dashboard/components/nav-bar
 - CREATE src/app/modules/dashboard/components/nav-bar/nav-bar.component.*
+
+### instalando material desing 
+ng add @angular/material

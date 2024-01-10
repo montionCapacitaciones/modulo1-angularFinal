@@ -8,6 +8,7 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { WeatherLocationService } from './modules/dashboard/service/weather-location.service';
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,7 +18,9 @@ export const appConfig: ApplicationConfig = {
     provideEffects(),
     WeatherLocationService,
     provideHttpClient(),
-  provideStoreDevtools({ maxAge: 25,logOnly: !isDevMode() })]
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideAnimations()
+]
 };
 
 

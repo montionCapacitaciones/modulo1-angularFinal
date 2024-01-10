@@ -308,7 +308,7 @@ html .clear-completed:active {
   line-height: 19px;
   text-decoration: none;
   cursor: pointer;
-   background-color: #f03a08;
+  background-color: #ff0156;
   border: 0;
   border-radius: 50px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);

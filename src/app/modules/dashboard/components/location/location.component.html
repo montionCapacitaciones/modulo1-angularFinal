@@ -13,8 +13,6 @@
               <h6><b>Temperature: </b> {{location.temp}}</h6>
               <h6><b>Current Time: </b> {{location.current_weather}}</h6>
               <h6><b>Description: </b> {{location.description}}</h6>
-
-
               <button class="btn" (click)="eliminarLocation(location)">Delete</button>
             </div>
           </div>
@@ -26,6 +24,6 @@
   </section>
   <footer class="footer">
 
-    <button class="clear-completed" (click)="clearCompleted()" >Clear completed</button>
+    <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
   </footer>
 </div>

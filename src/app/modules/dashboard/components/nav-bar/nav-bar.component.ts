@@ -22,6 +22,7 @@ export class NavBarComponent {
 
   public searchLocation(): void {
     this.newPostalcodeSearch.emit(this.busqueda)
+    this.newLocationControl.setValue('');
 
   }
 
