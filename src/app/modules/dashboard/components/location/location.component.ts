@@ -15,6 +15,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrl: './location.component.css',
 })
 export class LocationComponent implements AfterViewInit {
+  verLocation(location: Location) {
+    console.log(location);
+  }
 
   @Input() public set postalCode(nuevoPostalCode: string) {
     this.cargandoWeatherLocation(nuevoPostalCode);

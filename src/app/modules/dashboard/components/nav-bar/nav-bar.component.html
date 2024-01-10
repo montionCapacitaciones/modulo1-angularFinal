@@ -3,10 +3,9 @@
     <h1>Weather Location</h1>
     <p>Add postal code</p>
     <form (ngSubmit)="searchLocation()">
-      <input class=" new-location" placeholder="Postal code" autofocus type="text" [formControl]="newLocationControl"
-        [(ngModel)]="busqueda" />
-      <button type="submit" (click)="searchLocation()"
-       class="btn">Search</button>
+      <input class=" new-location form-control" placeholder="Postal code" autofocus type="text"
+        [formControl]="newLocationControl" [(ngModel)]="busqueda" />
+      <button type="submit" (click)="searchLocation()" class=" btn btn-success">Search</button>
     </form>
 
   </div>

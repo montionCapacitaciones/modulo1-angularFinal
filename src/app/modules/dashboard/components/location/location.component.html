@@ -3,15 +3,16 @@
   <section class="main">
     <ul class="location-list mat-elevation-z8" *ngIf="locations().length>0; else spinner">
       <li *ngFor="let location of locations()">
-        <div class="courses-container">
-          <div class="course">
-            <div class="course-info">
-              <h5><b>City:</b> {{location.ciudad}} - <b>Code Postal:</b> {{location.postalcode}}</h5>
-              <h6><b>Temperature: </b> {{location.temp}}</h6>
-              <h6><b>Current Time: </b> {{location.current_weather}}</h6>
-              <h6><b>Description: </b> {{location.description}}</h6>
-              <button class="btn" (click)="eliminarLocation(location)">Delete</button>
-            </div>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><b>City:</b> {{location.ciudad}} - <b>Code Postal:</b> {{location.postalcode}}</h4>
+            <h5 class="card-text"><b>Temperature: </b> {{location.temp}}</h5>
+            <h5 class="card-text"><b>Current Time: </b> {{location.current_weather}}</h5>
+            <h5 class="card-text"><b>Description: </b> {{location.description}}</h5>
+
+
+            <button class="btn btn-primary btn-view " (click)="verLocation(location)">Ver</button>
+            <button class="btn btn-danger btn-delete" (click)="eliminarLocation(location)">Delete</button>
           </div>
         </div>
       </li>
