@@ -11,7 +11,7 @@ import { WeatherLocationService } from '../../service/weather-location.service';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-  @Output() public newPostalcode: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public newPostalcodeSearch: EventEmitter<string> = new EventEmitter<string>();
 
   public busqueda: string = '';
   newLocationControl = new FormControl('', {
@@ -21,7 +21,7 @@ export class NavBarComponent {
   });
 
   public searchLocation(): void {
-    this.newPostalcode.emit(this.busqueda)
+    this.newPostalcodeSearch.emit(this.busqueda)
 
   }
 

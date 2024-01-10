@@ -13,7 +13,10 @@ import { Location } from '../../models/location.model';
   styleUrl: './location.component.css',
 })
 export class LocationComponent implements AfterViewInit {
-  @Input() public postalCode: string = '94040';
+
+  @Input() public set postalCode(nuevoPostalCode: string) {
+    this.cargandoWeatherLocation(nuevoPostalCode);
+  }
 
   locations = signal<Location[]>([]);
 
@@ -21,13 +24,16 @@ export class LocationComponent implements AfterViewInit {
   public constructor(private weatherLocationService: WeatherLocationService, private cdRef: ChangeDetectorRef
   ) { }
   ngAfterViewInit(): void {
-    this.weathers$ = this.weatherLocationService.searchFromPostalCode(this.postalCode);
+
+  }
+  cargandoWeatherLocation(newPostalCode:string): void{
+    this.weathers$ = this.weatherLocationService.searchFromPostalCode(newPostalCode);
     this.cdRef.detectChanges();
     this.weathers$.subscribe(
       (weather) => {
         this.locations.set([
           ...this.locations(), {
-            postalcode: this.postalCode,
+            postalcode: newPostalCode,
             ciudad: weather.name,
             current_weather: weather.weather[0].main,
             description: weather.weather[0].description,

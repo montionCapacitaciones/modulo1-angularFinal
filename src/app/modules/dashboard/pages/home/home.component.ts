@@ -12,7 +12,7 @@ import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  public newpostalcode: string = '94040';
+  public newpostalcode: string = '';
   actualizarPostalCode(newPostalCodeBusqueda: string) {
     console.log(newPostalCodeBusqueda);
     this.newpostalcode = newPostalCodeBusqueda;
