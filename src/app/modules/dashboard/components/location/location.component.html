@@ -1,9 +1,6 @@
 <div class="container location-wrapper">
   <!-- This section should be hidden by default and shown when there are locations -->
   <section class="main">
-    <pre><code> {{locations()  | json}}
-    </code></pre>
-
     <ul class="location-list">
 
       <li *ngFor="let location of locations()">
@@ -12,13 +9,13 @@
 
             <div class="course-info">
 
-              <h5><b>City:</b> {{location.ciudad}}</h5>
+              <h5><b>City:</b> {{location.ciudad}} - <b>Code Postal:</b> {{location.postalcode}}</h5>
               <h6><b>Temperature: </b> {{location.temp}}</h6>
               <h6><b>Current Time: </b> {{location.current_weather}}</h6>
               <h6><b>Description: </b> {{location.description}}</h6>
 
 
-              <button class="btn">Delete</button>
+              <button class="btn" (click)="eliminarLocation(location)">Delete</button>
             </div>
           </div>
         </div>
@@ -29,6 +26,6 @@
   </section>
   <footer class="footer">
 
-    <button class="clear-completed">Clear completed</button>
+    <button class="clear-completed" (click)="clearCompleted()" >Clear completed</button>
   </footer>
 </div>

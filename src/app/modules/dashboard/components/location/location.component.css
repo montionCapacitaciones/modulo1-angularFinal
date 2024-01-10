@@ -308,6 +308,13 @@ html .clear-completed:active {
   line-height: 19px;
   text-decoration: none;
   cursor: pointer;
+   background-color: #f03a08;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 25px;
 }
 
 .clear-completed:hover {
@@ -462,7 +469,7 @@ body {
 }
 
 .btn {
-  background-color: #2A265F;
+  background-color: #df390b;
   border: 0;
   border-radius: 50px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);

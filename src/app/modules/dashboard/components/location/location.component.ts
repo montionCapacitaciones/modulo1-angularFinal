@@ -27,23 +27,34 @@ export class LocationComponent implements AfterViewInit {
 
   }
   cargandoWeatherLocation(newPostalCode:string): void{
+    if(newPostalCode === '' || (newPostalCode === undefined) || newPostalCode === null ) {
+      return ;
+    }
     this.weathers$ = this.weatherLocationService.searchFromPostalCode(newPostalCode);
     this.cdRef.detectChanges();
     this.weathers$.subscribe(
       (weather) => {
         this.locations.set([
-          ...this.locations(), {
+          {
             postalcode: newPostalCode,
             ciudad: weather.name,
             current_weather: weather.weather[0].main,
             description: weather.weather[0].description,
             temp: weather.main.temp
-          }
+          },...this.locations(),
         ]);
         console.log(this.locations())
 
       }
     )
 
+  }
+
+  eliminarLocation(location: Location): void {
+    const index = this.locations().indexOf(location);
+    this.locations.set([...this.locations().slice(0, index), ...this.locations().slice(index + 1)]);
+  }
+  clearCompleted(): void {
+    this.locations.set([]);
   }
 }
