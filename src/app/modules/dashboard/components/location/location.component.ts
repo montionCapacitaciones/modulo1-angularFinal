@@ -2,13 +2,15 @@ import { AfterViewInit, ChangeDetectorRef, Component, Input, signal } from '@ang
 import { WeatherLocationService } from '../../service/weather-location.service';
 import { Observable } from 'rxjs';
 import { GetSearchWeather } from '../../models/get-search-weather';
-import { AsyncPipe, JsonPipe, NgFor } from '@angular/common';
+import { AsyncPipe, JsonPipe, NgFor, NgIf } from '@angular/common';
 import { Location } from '../../models/location.model';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @Component({
   selector: 'app-location',
   standalone: true,
-  imports: [AsyncPipe, NgFor, JsonPipe],
+  imports: [AsyncPipe, NgFor, NgIf, JsonPipe, MatProgressSpinnerModule],
   templateUrl: './location.component.html',
   styleUrl: './location.component.css',
 })
@@ -26,9 +28,9 @@ export class LocationComponent implements AfterViewInit {
   ngAfterViewInit(): void {
 
   }
-  cargandoWeatherLocation(newPostalCode:string): void{
-    if(newPostalCode === '' || (newPostalCode === undefined) || newPostalCode === null ) {
-      return ;
+  cargandoWeatherLocation(newPostalCode: string): void {
+    if (newPostalCode === '' || (newPostalCode === undefined) || newPostalCode === null) {
+      return;
     }
     this.weathers$ = this.weatherLocationService.searchFromPostalCode(newPostalCode);
     this.cdRef.detectChanges();
@@ -41,7 +43,7 @@ export class LocationComponent implements AfterViewInit {
             current_weather: weather.weather[0].main,
             description: weather.weather[0].description,
             temp: weather.main.temp
-          },...this.locations(),
+          }, ...this.locations(),
         ]);
         console.log(this.locations())
 
